@@ -5,6 +5,9 @@ syntax enable
 set background=dark
 set noerrorbells
 
+" Because I sometimes use fish
+set shell=bash
+
 " disable arrows for navigation
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
