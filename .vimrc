@@ -93,3 +93,13 @@ function! RepeatChar(char, count)
 endfunction
 nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
+
+" move to the end of a paste
+" vnoremap <silent> y y`]
+" vnoremap <silent> p p`]
+" nnoremap <silent> p p`]
+
+" prevent the command line history buffer from happening
+map q: :q
+
+
