@@ -5,6 +5,16 @@ syntax enable
 set background=dark
 set noerrorbells
 
+" for find and such
+set path+=**
+
+" use tags: ctrl+] to jumpt to tag, prepend g for ambig, ctrl+t to jump back
+command! MakeTags !ctags -R .
+
+
+" insert python boilerplate
+nnoremap \pyboil :read $HOME/.vim/snippets/pyboil.py<CR>
+
 " Because I sometimes use fish
 set shell=bash
 
@@ -91,6 +101,7 @@ nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
 nnoremap Y y$
 
+"this function replaces s with a single insert
 function! RepeatChar(char, count)
 	return repeat(a:char, a:count)
 endfunction
@@ -105,4 +116,18 @@ nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 " prevent the command line history buffer from happening
 map q: :q
 
+"theoretically, this turns on autocompleteion
+set omnifunc=syntaxcomplete#Complete
 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-airline/vim-airline'
+set laststatus=2 "this turns the status line on by defualt
