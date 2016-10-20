@@ -8,12 +8,12 @@ set noerrorbells
 " for find and such
 set path+=**
 
-" use tags: ctrl+] to jumpt to tag, prepend g for ambig, ctrl+t to jump back
+" use tags: ctrl+] to jump to tag, prepend g for ambig, ctrl+t to jump back
 command! MakeTags !ctags -R .
 
-
-" insert python boilerplate
-nnoremap \pyboil :read $HOME/.vim/snippets/pyboil.py<CR>
+" insert language boilerplate
+nnoremap \pymain :read $HOME/.vim/snippets/pyboil.py<CR>
+nnoremap \javaclass :read $HOME/.vim/snippets/javaclass.java<CR>2f 
 
 " Because I sometimes use fish
 set shell=bash
@@ -63,8 +63,6 @@ set undolevels=1000
 "toggle relative and absolute number line
 nnoremap <F3> :NumbersToggle<CR>
 
-"pathogen bundle manager
-execute pathogen#infect()
 
 " w! sudo saves
 cmap w!! w !sudo tee % >/dev/null
@@ -108,17 +106,21 @@ endfunction
 nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 
-" move to the end of a paste
-" vnoremap <silent> y y`]
-" vnoremap <silent> p p`]
-" nnoremap <silent> p p`]
-
 " prevent the command line history buffer from happening
 map q: :q
 
 "theoretically, this turns on autocompleteion
 set omnifunc=syntaxcomplete#Complete
+"and use a non-emacs style shortcut for it. 
+inoremap <S-Tab> <C-x><C-o>
 
+set laststatus=2 "this turns the status line on by defualt
+
+
+"==================== HERE BE PLUGINS ====================
+
+"pathogen bundle manager. This may be redundant with the line below it
+execute pathogen#infect()
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -130,4 +132,3 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
-set laststatus=2 "this turns the status line on by defualt
