@@ -14,15 +14,16 @@ command! MakeTags !ctags -R .
 " insert language boilerplate
 nnoremap \pymain :read $HOME/.vim/snippets/pyboil.py<CR>
 nnoremap \javaclass :read $HOME/.vim/snippets/javaclass.java<CR>2f 
+nnoremap \shboil :read $HOME/.vim/snippets/shboil<CR>
 
 " Because I sometimes use fish
 set shell=bash
 
 " disable arrows for navigation
-inoremap  <Up>     <NOP>
-inoremap  <Down>   <NOP>
-inoremap  <Left>   <NOP>
-inoremap  <Right>  <NOP>
+"inoremap  <Up>     <NOP>
+"inoremap  <Down>   <NOP>
+"inoremap  <Left>   <NOP>
+"inoremap  <Right>  <NOP>
 noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
@@ -60,7 +61,7 @@ set undolevels=1000
 :nmap k gk
 
 "toggle relative and absolute number line
-nnoremap <F3> :NumbersToggle<CR>
+nnoremap <F3> : set rnu!<CR>
 
 " w! sudo saves
 cmap w!! w !sudo tee % >/dev/null
@@ -77,7 +78,6 @@ nmap <leader><cr> i<cr><Esc>
 
 "spelling
 set spelllang=en
-set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add
 
 "this is controversial but possibly awesome
 nnoremap ; :
@@ -105,9 +105,9 @@ nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 
 " prevent the command line history buffer from happening
-map q: :q
+" map q: :q
 
-"theoretically, this turns on autocompletion
+"this turns on autocompletion
 set omnifunc=syntaxcomplete#Complete
 "and use a non-emacs style shortcut for it. 
 inoremap <S-Tab> <C-x><C-o>
