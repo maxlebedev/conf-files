@@ -39,7 +39,6 @@ set incsearch
 set smartcase
 
 set title
-"set smartindent
 
 filetype on
 filetype plugin on " read all filetype specific plugins. none by default
@@ -56,13 +55,12 @@ set history=1000
 set undolevels=1000  
 
 "Cursor should move up/down a single row on the screen rather than to the next
-"line. usefuel for line lines taking up multiple rows
+"line. useful for line lines taking up multiple rows
 :nmap j gj
 :nmap k gk
 
 "toggle relative and absolute number line
 nnoremap <F3> :NumbersToggle<CR>
-
 
 " w! sudo saves
 cmap w!! w !sudo tee % >/dev/null
@@ -81,7 +79,7 @@ nmap <leader><cr> i<cr><Esc>
 set spelllang=en
 set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add
 
-"this is controvercial but possibly awesome
+"this is controversial but possibly awesome
 nnoremap ; :
 
 "alternate window movement
@@ -92,7 +90,7 @@ map <c-h> <c-w>h
 
 map <Tab><Tab> <C-W>w
 
-" set cosshairs 
+" set crosshairs 
 hi CursorLine cterm=NONE ctermbg=DarkGray ctermfg=NONE
 hi CursorColumn cterm=NONE ctermbg=DarkGray ctermfg=NONE
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
@@ -109,13 +107,12 @@ nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 " prevent the command line history buffer from happening
 map q: :q
 
-"theoretically, this turns on autocompleteion
+"theoretically, this turns on autocompletion
 set omnifunc=syntaxcomplete#Complete
 "and use a non-emacs style shortcut for it. 
 inoremap <S-Tab> <C-x><C-o>
 
-set laststatus=2 "this turns the status line on by defualt
-
+set laststatus=2 "this turns the status line on by default
 
 "==================== HERE BE PLUGINS ====================
 
