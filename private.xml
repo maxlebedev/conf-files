@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<root>
+    <item>
+        <name>Remap Slash to Control</name>
+        <appendix>the light side of the keyboard lacks a control</appendix>
+        
+        <identifier>mlebedev.slash_to_control</identifier>
+        
+        <autogen>
+            __KeyOverlaidModifier__
+            KeyCode::SLASH,
+            KeyCode::CONTROL_L,
+            KeyCode::SLASH
+        </autogen>
+    </item>
+    <item>
+        <name>Remap Shift Key to Bracket</name>
+        <appendix>No reason not to</appendix>
+        
+        <identifier>mlebedev.shift_as_bracket</identifier>
+        
+        <autogen>
+            --KeyOverlaidModifier--
+            KeyCode::SHIFT_L, ModifierFlag::SHIFT_L,
+            KeyCode::SHIFT_L,
+            KeyCode::BRACKET_LEFT, ModifierFlag::SHIFT_R
+        </autogen>
+        <autogen>
+            --KeyOverlaidModifier--
+            KeyCode::SHIFT_R, ModifierFlag::SHIFT_R,
+            KeyCode::SHIFT_R,
+            KeyCode::BRACKET_RIGHT, ModifierFlag::SHIFT_L
+        </autogen>
+    </item>
+    <item>
+        <name>Remap Application key to CMD</name>
+        <appendix>Amazonbasics support </appendix>
+        
+        <identifier>mlebedev.app_to_cmd</identifier>
+        <autogen>__KeyToKey__ KeyCode::PC_APPLICATION, KeyCode::COMMAND_R</autogen>
+    </item></root>
