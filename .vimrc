@@ -10,11 +10,13 @@ set path+=**
 
 " use tags: ctrl+] to jump to tag, prepend g for ambig, ctrl+t to jump back
 command! MakeTags !ctags -R .
+nnoremap <Leader>] g<C-]> 
+nnoremap <Leader>[ <C-t>
 
 " insert language boilerplate
-nnoremap \pymain :read $HOME/.vim/snippets/pyboil.py<CR>
-nnoremap \javaclass :read $HOME/.vim/snippets/javaclass.java<CR>2f 
-nnoremap \shboil :read $HOME/.vim/snippets/shboil<CR>
+nnoremap <Leader>pymain :read $HOME/.vim/snippets/pyboil.py<CR>
+nnoremap <Leader>javaclass :read $HOME/.vim/snippets/javaclass.java<CR>2f 
+nnoremap <Leader>shboil :read $HOME/.vim/snippets/shboil<CR>
 
 " Because I sometimes use fish
 set shell=bash
