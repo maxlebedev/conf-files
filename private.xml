@@ -2,7 +2,7 @@
 <root>
     <item>
         <name>Remap Slash to Control</name>
-        <appendix>the light side of the keyboard lacks a control</appendix>
+        <appendix>the right side of the keyboard lacks a control</appendix>
         
         <identifier>mlebedev.slash_to_control</identifier>
         
@@ -34,8 +34,27 @@
     </item>
     <item>
         <name>Remap Application key to CMD</name>
-        <appendix>Amazonbasics support </appendix>
+        <appendix>Amazonbasics keyboard support </appendix>
         
         <identifier>mlebedev.app_to_cmd</identifier>
         <autogen>__KeyToKey__ KeyCode::PC_APPLICATION, KeyCode::COMMAND_R</autogen>
-    </item></root>
+    </item>
+    <item>
+        <name>FN+Click to switch spaces</name>
+        <appendix>move through spaces by clicking the corresponding mouse button</appendix>
+        
+        <identifier>mlebedev.click_space</identifier>
+        
+        <autogen>
+            __KeyToKey__ PointingButton::LEFT, ModifierFlag::FN, KeyCode::CURSOR_LEFT,  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+        </autogen>
+
+        <autogen>
+             __KeyToKey__ PointingButton::RIGHT, ModifierFlag::FN, KeyCode::CURSOR_RIGHT,  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+
+        </autogen>
+    </item>
+
+</root>
+
+
