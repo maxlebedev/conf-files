@@ -14,12 +14,14 @@ nnoremap <Leader>] g<C-]>
 nnoremap <Leader>[ <C-t>
 
 " insert language boilerplate
+nnoremap <Leader>pdb  :read $HOME/.vim/snippets/pdb.py<ESC>
 nnoremap <Leader>pymain :read $HOME/.vim/snippets/pyboil.py<CR>
 nnoremap <Leader>javaclass :read $HOME/.vim/snippets/javaclass.java<CR>2f 
 nnoremap <Leader>shboil :read $HOME/.vim/snippets/shboil<CR>
 
 " Because I sometimes use fish
 set shell=bash
+noremap <C-d> :sh<cr>
 
 " disable arrows for navigation
 "inoremap  <Up>     <NOP>
@@ -116,6 +118,34 @@ inoremap <S-Tab> <C-x><C-o>
 
 set laststatus=2 "this turns the status line on by default
 
+" provide some sort of alternative to ESC
+:inoremap jj <ESC>
+
+
+
+" indicate this is the window to swap to
+function! MarkWindowSwap()
+    let g:markedWinNum = winnr()
+endfunction
+
+function! DoWindowSwap()
+    "Mark destination
+    let curNum = winnr()
+    let curBuf = bufnr( "%" )
+    exe g:markedWinNum . "wincmd w"
+    "Switch to source and shuffle dest->source
+    let markedBuf = bufnr( "%" )
+    "Hide and open so that we aren't prompted and keep history
+    exe 'hide buf' curBuf
+    "Switch to dest and shuffle source->dest
+    exe curNum . "wincmd w"
+    "Hide and open so that we aren't prompted and keep history
+    exe 'hide buf' markedBuf 
+endfunction
+
+nmap <silent> <leader>q :call MarkWindowSwap()<CR>
+nmap <silent> <leader>w :call DoWindowSwap()<CR>
+
 "==================== HERE BE PLUGINS ====================
 
 "pathogen bundle manager. This may be redundant with the line below it
@@ -131,3 +161,4 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
+" consider: jedi-vim, syntastic, vimproc/vimshell
