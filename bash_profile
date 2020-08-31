@@ -98,9 +98,6 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH=/usr/local/bin:$PATH
 export PATH=~/go/bin:$PATH
 
-export S3_AWS_ACCESS_KEY_ID=AKIAJMNZCJRT4XZVTDQA
-export S3_AWS_SECRET_ACCESS_KEY=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
-
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
@@ -115,7 +112,5 @@ export VIRTUALENVWRAPPER_PYTHON=python
 # eval $(thefuck --alias fck)
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home
-
-export ANSIBLE_VAULT_PASSWORD_FILE=/Users/maxlebedev/adm-infrastructure/ansible_vault_password
 
 alias cat='bat'
